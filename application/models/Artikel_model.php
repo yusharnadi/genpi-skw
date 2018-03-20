@@ -21,6 +21,15 @@ class Artikel_model extends CI_Model{
 		return $this->db->get($this->tabel)->result();
 	}
 
+	public function get_part($limit, $offset)
+	{
+	    $this->db->join('kategori', 'kategori.id_kategori=artikel.id_kategori');
+
+		$this->db->order_by('artikel.date','DESC');
+
+		return $this->db->get($this->tabel, $limit, $offset)->result();
+	}
+
 	public function get_one($id)
 	{
 	    $this->db->join('kategori', 'kategori.id_kategori=artikel.id_kategori');
