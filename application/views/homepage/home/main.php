@@ -12,11 +12,12 @@
 				<div class="card m-2">
 					<img class="card-img-top" src="<?php echo base_url().'uploads/'.$art->gambar_utama; ?>" alt="artikel">
 					<div class="card-body">
-						<h5 class="card-title"><?php echo substr($art->judul, 0,40); ?></h5>
+						<a href="<?php echo base_url().'artikel/detail/'.$art->id_artikel; ?>">
+							<h5 class="card-title"><?php echo substr($art->judul, 0,40); ?></h5>
+						</a>
 						<p class="desc">
 							<?php echo substr(strip_tags($art->konten), 0,130).' . . .'; ?>
 						</p>
-
 					</div>
 				</div>
 			</div>
@@ -25,7 +26,7 @@
 		<!-- row -->
 		<div class="row">
 			<div class="col text-center p-4">
-				<a href="#" class="btn btn-lg btn-outline-dark">Lihat Selengkapnya</a>
+				<a href="<?php echo base_url(); ?>berita" class="btn btn-lg btn-outline-dark">Lihat Selengkapnya</a>
 			</div>
 		</div>
 	</div>
@@ -63,7 +64,7 @@
 							<?php echo substr(strip_tags($event->konten), 0,130).' . . .'; ?>
 						</p>
 						<p>
-							<a href="#">Read More</a>
+							<a href="<?php echo base_url().'artikel/detail/'.$event->id_artikel; ?>">Read More</a>
 						</p>
 					</figcaption>
 				</figure>
@@ -72,7 +73,7 @@
 		</div>
 		<div class="row">
 			<div class="col text-center p-4">
-				<a href="#" class="btn btn-lg btn-outline-dark">Lihat Selengkapnya</a>
+				<a href="<?php echo base_url(); ?>events" class="btn btn-lg btn-outline-dark">Lihat Selengkapnya</a>
 			</div>
 		</div>
 	</div>

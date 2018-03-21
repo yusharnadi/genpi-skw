@@ -12,15 +12,10 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="DropdownPost" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url(); ?>admin/artikel">
                     <i class="fa fa-pencil-square-o"></i> Post
                 </a>
-                <div class="dropdown-menu" aria-labelledby="DropdownPost">
-                    <a class="dropdown-item" href="<?php echo base_url(); ?>admin/artikel">Artikel</a>
-                    <a class="dropdown-item" href="<?php echo base_url(); ?>admin/kategori">Kategori</a>
-                </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="DropdownPost" role="button" data-toggle="dropdown" aria-haspopup="true"

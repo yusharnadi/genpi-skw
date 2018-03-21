@@ -21,9 +21,38 @@ class Artikel_model extends CI_Model{
 		return $this->db->get($this->tabel)->result();
 	}
 
+	public function count($id)
+	{
+	    $this->db->where('id_kategori', $id);
+
+		return $this->db->get('artikel')->num_rows();
+	}
+
 	public function get_part($limit, $offset)
 	{
 	    $this->db->join('kategori', 'kategori.id_kategori=artikel.id_kategori');
+
+		$this->db->order_by('artikel.date','DESC');
+
+		return $this->db->get($this->tabel, $limit, $offset)->result();
+	}
+
+	public function get_part_artikel($limit, $offset)
+	{
+	    $this->db->join('kategori', 'kategori.id_kategori=artikel.id_kategori');
+
+		$this->db->where('artikel.id_kategori', 1);
+
+		$this->db->order_by('artikel.date','DESC');
+
+		return $this->db->get($this->tabel, $limit, $offset)->result();
+	}
+
+	public function get_part_events($limit, $offset)
+	{
+	    $this->db->join('kategori', 'kategori.id_kategori=artikel.id_kategori');
+
+		$this->db->where('artikel.id_kategori', 2);
 
 		$this->db->order_by('artikel.date','DESC');
 

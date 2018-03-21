@@ -51,7 +51,7 @@
 							  <small id="gambar_utama" class="form-text text-muted">Gambar utama akan ditampikan untuk Thumbnail headline berita di homepage.</small>
 							</div>
 						</div>
-						<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+						<input type="hidden" name="<?php echo $this->security->get_csrf_token_name();?>" value="<?php echo $this->security->get_csrf_hash() ?>" />
 						<button type="submit" class="btn btn-success">Posting</button>
 					</form>
 				</div>

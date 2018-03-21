@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Artikel extends CI_Controller{
+class Events extends CI_Controller{
 
   public function __construct()
   {
@@ -16,9 +16,9 @@ class Artikel extends CI_Controller{
   {
 	  $this->load->library('pagination');
 
-	  $config['base_url'] = base_url().'artikel/index/';
+	  $config['base_url'] = base_url().'events/index/';
 
-	  $config['total_rows'] = $this->db->count_all('artikel');
+	  $config['total_rows'] = $this->Artikel_model->count(2);
 
 	  $config['per_page'] = 5;
 
@@ -69,43 +69,19 @@ class Artikel extends CI_Controller{
 	  $offset  = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0 ;
 
 
-	  $data['artikel']	=	$this->Artikel_model->get_part($config['per_page'], $offset);
+	  $data['artikel']	=	$this->Artikel_model->get_part_events($config['per_page'], $offset);
 
 	  $data['pagination'] = $this->pagination->create_links();
 
       //$data['kategori'] =   $this->Kategori_model->get_all();
 
-	  $data['content']	=	'homepage/artikel/main';
+	  $data['content']	=	'homepage/berita/main';
 
       $data['sidebar']  =   'homepage/layout/sidebar';
 
 	  $this->load->view('homepage/layout/master', $data);
   }
 
-  public function detail($id=NULL)
-  {
-      if ($id != NULL && is_numeric($id)) {
 
-          if ($this->Artikel_model->get_one($id) == '') {
-             redirect('homepage');
-         }
-         else
-         {
-             $data['artikel']  =   $this->Artikel_model->get_one($id);
-
-             $data['content']  =   'homepage/artikel/detail';
-
-              $data['sidebar']  =   'homepage/layout/sidebar';
-
-             $this->load->view('homepage/layout/master', $data);
-         }
-
-      }
-      else
-      {
-          redirect('homepage');
-      }
-
-  }
 
 }
